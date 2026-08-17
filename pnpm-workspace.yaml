@@ -1,0 +1,17 @@
+packages:
+  - "packages/*"
+  - "apps/*"
+
+# Build-script policy:
+# - esbuild needs its postinstall (platform binary) for vite/vitest/tsx.
+# - better-sqlite3 ships per-platform prebuilt .node binaries inside its
+#   npm tarball (prebuilds/) and has no install script; pnpm's implicit
+#   node-gyp fallback is unnecessary (and there is no toolchain on this
+#   machine), so its build is explicitly declined.
+onlyBuiltDependencies:
+  - esbuild
+ignoredBuiltDependencies:
+  - better-sqlite3
+allowBuilds:
+  better-sqlite3: false
+  esbuild: true

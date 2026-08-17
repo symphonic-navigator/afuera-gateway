@@ -1,0 +1,32 @@
+{
+  "name": "@afuera/crypto",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "description": "Cryptographic foundation layer for afuera-gateway (spec: docs/specs/auth-crypto.md). Runs identically in browser and Node.",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./src/index.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "@noble/ciphers": "^2.3.0",
+    "@noble/curves": "^2.3.0",
+    "@noble/hashes": "^2.3.0",
+    "@scure/bip39": "^2.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.10"
+  }
+}
